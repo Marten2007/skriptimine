@@ -1,12 +1,19 @@
-#!/bin/bash
-# Skript tervitab kasutajat: kuvab "Tere, Kasutajanimi !"
 
-# 1. Väljasta "Tere, " ilma reavahetuseta
+#!/bin/bash
+# Skript tervitab kasutajat, kus kasutajanimi on suure algustähega ja ülejäänud väikesed tähed
+
+# 1) Väljasta "Tere, " ilma reavahetuseta
 echo -n "Tere, "
 
-# 2. Tekita kasutaja nimi vastava käsuga (nt $USER) ja väljasta ilma reavahetuseta
-echo -n "$USER"
+# 2) Võta kasutajanimi, muuda esimene täht suureks, ülejäänud väikseks ja väljasta ilma reavahetuseta
+# Kasutame bash'i parameetrite laiendust, mis on bash 4+ puhul saadaval
+# ${variable^} - muudab esimese tähe suureks
+# ${variable,,} - muudab kõik tähed väikseks
 
-# 3. Väljasta "!" ja tee reavahetus
+user_formatted="${USER,,}"      # kõigepealt tee kõik väikseks
+user_formatted="${user_formatted^}"  # seejärel esimene täht suureks
+
+echo -n "$user_formatted"
+
+# 3) Väljasta "!" ja tee reavahetus
 echo "!"
-
