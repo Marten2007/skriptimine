@@ -1,0 +1,17 @@
+#!/bin/bash
+# Skript aitab arvutada, mitu täis bussi saab ja mitu inimest jääb üle
+
+echo -n "Sisesta grupi reisijate arv: "
+read reisijad
+
+echo -n "Sisesta kohtade arv ühes bussis: "
+read kohad
+
+# Arvuta täis busside arv
+tais_bussid=$(( reisijad / kohad ))
+
+# Arvuta ülejäänud inimeste arv
+ulejaanud=$(( reisijad % kohad ))
+
+echo "Täis busse on: $tais_bussid"
+echo "Mahajäänud inimesi: $ulejaanud"
