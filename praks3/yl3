@@ -1,0 +1,21 @@
+#!/bin/bash
+# Skript küsib ainepunktide ja nädalate arvu ning arvutab ühe nädala eeldatava ajakulu (ümardatud ülespoole)
+
+EAP_TUNNID=26
+
+echo -n "Sisesta ainepunktide arv (täisarv): "
+read ainepunktid
+
+echo -n "Sisesta nädalate arv (täisarv): "
+read naadalad
+
+# Arvutame kogutunnid
+kogutunnid=$(echo "$ainepunktid * $EAP_TUNNID" | bc)
+
+# Arvutame ühe nädala eeldatava ajakulu (reaalarv)
+nadal_tunnid=$(echo "scale=2; $kogutunnid / $naadalad" | bc)
+
+# Ümardame ülespoole (lisame 0.9 ja võtame täisarvu)
+nadal_tunnid_ymardatud=$(echo "($nadal_tunnid + 0.9)/1" | bc)
+
+echo "Ühe nädala eeldatav ajakulu on: $nadal_tunnid_ymardatud tundi"
