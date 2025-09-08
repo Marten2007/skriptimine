@@ -1,0 +1,12 @@
+#!/bin/bash
+# Skript tervitab kasutajat: kuvab "Tere, Kasutajanimi !"
+
+# 1. Väljasta "Tere, " ilma reavahetuseta
+echo -n "Tere, "
+
+# 2. Tekita kasutaja nimi vastava käsuga (nt $USER) ja väljasta ilma reavahetuseta
+echo -n "$USER"
+
+# 3. Väljasta "!" ja tee reavahetus
+echo "!"
+
