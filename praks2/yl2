@@ -1,0 +1,8 @@
+#!/bin/bash
+# Skript kuvab kasutajale tänase kuupäeva ja kellaaega
+
+# Väljasta kuupäev ja kellaaeg formaadis: Päev, kuupäev.kuu.aasta kellaaeg
+# Näiteks: Esmaspäev, 08.09.2025 14:30:00
+
+echo "Praegune kuupäev ja kellaaeg on:"
+date "+%A, %d.%m.%Y %H:%M:%S"
