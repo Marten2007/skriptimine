@@ -1,0 +1,15 @@
+#!/bin/bash
+# Skript loob muutujad ja ühendab need terviklikuks lauseks
+
+aasta=2016
+president="Kersti Kaljulaid"
+lause_keskosa=". aastal valiti Eesti presidendiks "
+
+# Muudame arvu sõneks (bash teeb seda automaatselt, aga ühtlustamiseks teisendame)
+aasta_str="$aasta"
+
+# Ühendame muutujad üheks lauseks
+lause="${aasta_str}${lause_keskosa}${president}"
+
+# Väljasta tulemus
+echo "$lause"
