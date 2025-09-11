@@ -1,0 +1,22 @@
+#!/bin/bash
+# Skript arvutab, mitu bussi on vaja, et mahutada kõik reisijad.
+# Kui reisijad ei mahu täisbussidesse, lisatakse üks buss juurde.
+
+echo -n "Sisesta reisijate arv: "
+read reisijad
+
+echo -n "Sisesta kohtade arv bussis: "
+read kohad
+
+# Arvuta täis busside arv
+tais_bussid=$(( reisijad / kohad ))
+
+# Arvuta ülejäänud inimeste arv
+ulejaanud=$(( reisijad % kohad ))
+
+# Kui on ülejäänud inimesi, siis lisa üks buss juurde
+if (( ulejaanud > 0 )); then
+    tais_bussid=$(( tais_bussid + 1 ))
+fi
+
+echo "Kokku on vaja $tais_bussid bussi"
