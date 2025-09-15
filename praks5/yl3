@@ -1,0 +1,28 @@
+#!/bin/bash
+# Skript tervitab kasutajat vastavalt sisestatud kellaajale (tundidele).
+
+echo -n "Sisesta aja väärtus (tund): "
+read tund
+
+# Kontrollime, et sisend oleks täisarv 0..23
+if ! [[ "$tund" =~ ^([0-9]|1[0-9]|2[0-3])$ ]]
+then
+    echo "Vigane sisend - sisesta tund 0 kuni 23."
+    exit 1
+fi
+
+if [ $tund -ge 6 -a $tund -lt 12 ]
+then
+    echo "Tere hommikust"
+elif [ $tund -ge 12 -a $tund -lt 18 ]
+then
+    echo "Tere päevast"
+elif [ $tund -ge 18 -a $tund -lt 22 ]
+then
+    echo "Tere õhtust"
+elif [ $tund -ge 22 -o $tund -lt 6 ]
+then
+    echo "Head ööd!"
+else
+    echo "Vigane sisend"
+fi
