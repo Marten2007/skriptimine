@@ -1,0 +1,34 @@
+#!/bin/bash
+# Skript väljastab kujundi vastavalt kasutaja sisestatud ridade ja tärnide arvule.
+# Esimene ja viimane rida on täis tärnid, vahepealsed read algavad ja lõpevad tärniga, vahel on tühikud.
+
+echo -n "Sisesta ridade arv: "
+read ridu
+
+echo -n "Sisesta tarnide arv reas: "
+read tarnide_arv
+
+for ((rida=1; rida<=ridu; rida++))
+do
+  if (( rida == 1 || rida == ridu )); then
+    # esimene ja viimane rida - kõik tärnid
+    for ((i=1; i<=tarnide_arv; i++))
+    do
+      echo -n "* "
+    done
+    echo
+  else
+    # keskmised read - esimene ja viimane tärn, vahele tühikud
+    echo -n "* "
+    for ((i=2; i<tarnide_arv; i++))
+    do
+      echo -n "  "  # kaks tühikut, et sobiks tärnide vaheline ruum
+    done
+    if (( tarnide_arv > 1 )); then
+      echo "*"
+    else
+      # kui tärnide arv reas on 1, siis ainult üks tärn
+      echo
+    fi
+  fi
+done
