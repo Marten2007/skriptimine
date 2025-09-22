@@ -1,0 +1,19 @@
+#!/bin/bash
+# Skript väljastab kasutaja sisestatud arvu ridu ja igas reas sisestatud arvu tärne (*).
+
+echo -n "Sisesta ridade arv: "
+read ridu
+
+echo -n "Sisesta tarnide arv reas: "
+read tarnide_arv
+
+for ((rida=1; rida<=ridu; rida++))
+do
+  # Koostame ühe rea tärnid tühikutega eraldatult
+  rida_sisu=""
+  for ((i=1; i<=tarnide_arv; i++))
+  do
+    rida_sisu+="* "
+  done
+  echo "$rida.  $rida_sisu"
+done
