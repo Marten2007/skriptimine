@@ -1,0 +1,19 @@
+#!/bin/bash
+# Skript väljastab kasvava tärnide kujundi, kus iga rida sisaldab rea numbriga võrdeliselt tärne.
+
+echo -n "Sisesta ridade arv: "
+read ridu
+
+for ((rida=1; rida<=ridu; rida++))
+do
+  # Väljasta rida number koos punktiga
+  echo -n "$rida. "
+  
+  # Väljasta tärnid rea numbri arvul
+  for ((i=1; i<=rida; i++))
+  do
+    echo -n "* "
+  done
+  
+  echo
+done
