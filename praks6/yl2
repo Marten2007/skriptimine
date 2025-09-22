@@ -1,0 +1,25 @@
+#!/bin/bash
+# Skript küsib kasutajalt täisarvu ja arvutab selle numbrite summa.
+
+echo -n "Sisesta suvaline täisarv: "
+read arv
+
+# Võtame arvu absoluutväärtuse numbrite summaks (et saada iga numbri summa)
+number=${arv#-}  # eemaldab negatiivmärgi, kui on
+
+summa=0
+i=0
+
+while [ $i -lt ${#number} ]
+do
+  digit=${number:$i:1}
+  summa=$((summa + digit))
+  i=$((i + 1))
+done
+
+# Kui arv on negatiivne, teeme summast negatiivse
+if [[ $arv == -* ]]; then
+  summa=$(( -summa ))
+fi
+
+echo "Arvu $arv numbrite summa on $summa"
