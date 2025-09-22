@@ -1,0 +1,7 @@
+#!/bin/bash
+# Skript väljastab 5 rida, igal real 5 tärni, koos ridade numbritega.
+
+for ((rida=1; rida<=5; rida++))
+do
+  echo "$rida.  * * * * *"
+done
