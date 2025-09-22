@@ -1,0 +1,30 @@
+#!/bin/bash
+# Skript väljastab kujundi, kus igal real on 'o' sümbolid vasakul ja '*' paremal,
+# 'o' arv väheneb ja '*' arv suureneb iga uue reaga.
+
+echo -n "Sisesta ridade arv: "
+read ridu
+
+for ((rida=1; rida<=ridu; rida++))
+do
+  # 'o' arv = ridu - rida
+  o_arv=$((ridu - rida))
+  # '*' arv = rida
+
+  # Väljasta rida number koos punktiga
+  echo -n "$rida. "
+
+  # Väljasta 'o'-d
+  for ((i=1; i<=o_arv; i++))
+  do
+    echo -n "o "
+  done
+
+  # Väljasta '*'-d
+  for ((i=1; i<=rida; i++))
+  do
+    echo -n "* "
+  done
+
+  echo
+done
