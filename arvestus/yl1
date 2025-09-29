@@ -1,0 +1,23 @@
+#!/bin/bash
+# Autor: marten
+# Kirjeldus: Skript tervitab kasutajat ja väljastab kuupäeva ning kellaaja.
+# Skriptinimi on yl1
+
+echo "Tere, Marten!"
+
+paev=$(date +%-d)
+kuu=$(date +%-m)
+aasta=$(date +%Y)
+tund=$(date +%-H)
+minut=$(date +%M)
+
+# Kontrollime, kas päev ja kuu on ühe numbriga ja lisame juhtnulli vajadusel
+if [ $paev -lt 10 ]; then
+  paev="0$paev"
+fi
+
+if [ $kuu -lt 10 ]; then
+  kuu="0$kuu"
+fi
+
+echo "Täna on $paev.$kuu.$aasta kell $tund:$minut"
