@@ -1,0 +1,23 @@
+#!/bin/bash
+# Autor: marten
+# Kirjeldus: Skript küsib kasutajalt ridade arvu ja väljastab kahaneva tärnidest kujundi.
+#Skriptinimi on yl3
+
+# Küsime kasutajalt ridade arvu
+read -p "Sisesta ridade arv: " read_arv
+
+# Kontrollime, kas sisend on arv
+if ! [[ "$read_arv" =~ ^[0-9]+$ ]]; then
+  echo "Viga: palun sisesta positiivne täisarv."
+  exit 1
+fi
+
+# Trükime kujundi
+for (( i=$read_arv; i>0; i-- ))
+do
+  for (( j=1; j<=i; j++ ))
+  do
+    echo -n "* "
+  done
+  echo ""
+done
